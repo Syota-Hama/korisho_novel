@@ -4,7 +4,7 @@
   </header>
 
   <div class="items-sell-main">
-    <h2 class="items-sell-title">小説の概要を入力してください</h2>
+    <h2 class="items-sell-title">内容を入力してください</h2>
     <%= form_with(model:[@book, @page], local: true) do |f| %>
 
     <%= render 'pages/shared/error_messages', model: f.object %>
@@ -14,7 +14,7 @@
         ページタイトル
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :page_title, class:"items-text", id:"novel_title", placeholder:"小説名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :page_title, class:"items-text", id:"novel_title", placeholder:"ページタイトル（必須 40文字まで)", maxlength:"40" %>
     </div>
 
     <div class="items-detail">
@@ -25,14 +25,14 @@
             こちらに入力してください
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_area :novel_page, class:"items-text", id:"synopsis", placeholder:"小説のあらすじ（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+          <%= f.text_area :novel_page, class:"items-text", id:"synopsis", placeholder:"テキスト（必須 10,000文字まで）" ,rows:"7" ,maxlength:"10000" %>
         </div>
       </div>
     </div>
 
     <div class="sell-btn-contents">
       <%= f.submit "投稿する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%=link_to 'もどる', book_pages_path, class:"back-btn" %>
     </div>
   </div>
   <% end %>
