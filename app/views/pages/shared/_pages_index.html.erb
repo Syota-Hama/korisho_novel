@@ -1,5 +1,5 @@
 <% @pages.each do |page| %>
-  <%= link_to "#", method: :get do %>
+  <%= link_to book_page_path(@book.id, page.id), method: :get do %>
     <div>
     ・<%= page.page_title %><br>
     </div>
