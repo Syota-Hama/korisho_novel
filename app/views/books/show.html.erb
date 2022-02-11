@@ -1,0 +1,8 @@
+<div>
+    題名　　：<%= @book.novel_title %><br>
+    ジャンル：<%= @book.genre.name %><br>
+    あらすじ：<%= @book.synopsis %><br>
+</div>
+<%= link_to "この小説を読む", "#", method: :get %>
+<%= link_to "この小説の設定を見る", "#", method: :get %>
+<%= link_to "設定を保存する", "#", method: :get %>
