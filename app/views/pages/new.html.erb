@@ -1,0 +1,51 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to "Korisho_Novel", root_path %>
+  </header>
+
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">内容を入力してください</h2>
+    <%= form_with(model:[@book, @page], local: true) do |f| %>
+
+    <%= render 'pages/shared/error_messages', model: f.object %>
+
+    <div class="new-items">
+      <div class="weight-bold-text">
+        ページタイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :page_title, class:"items-text", id:"novel_title", placeholder:"ページタイトル（必須 40文字まで)", maxlength:"40" %>
+    </div>
+
+    <div class="items-detail">
+      <div class="weight-bold-text">ページテキスト</div>
+      <div class="form">
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            こちらに入力してください
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :novel_page, class:"items-text", id:"synopsis", placeholder:"テキスト（必須 10,000文字まで）" ,rows:"7" ,maxlength:"10000" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', book_pages_path, class:"back-btn" %>
+    </div>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to "Korisho_Novel", root_path %>
+    <p class="inc">
+      ©︎Korisho-Novel,Inc.
+    </p>
+  </footer>
+</div>
