@@ -1,0 +1,10 @@
+<% @books.each do |book| %>
+  <%= link_to book_path(book.id), method: :get do %>
+    <div>
+    <%= book.book_name %><br>
+    ジャンル <%= book.genre.name %><br>
+    <%= book.synopsis %><br>
+    ------------------------------
+    </div>
+  <% end %>
+<% end %>
