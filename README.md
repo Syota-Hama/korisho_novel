@@ -1,24 +1,53 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+6.0.0
 
-* System dependencies
+## usersテーブル
+|Column               |Type   |Options                  |
+|---------------------|-------|-------------------------|
+|nickname             |string |null: false              |
+|email                |string |null: false, unique: true|
+|encrypted_password   |string |null: false              |
 
-* Configuration
+### Association
+- has_many :books
+- has_many :pages
+- has_many :configurations
 
-* Database creation
+## booksテーブル
+|Column            |Type      |Options                       |
+|------------------|----------|------------------------------|
+|novel_title       |string    |null: false                   |
+|synopsis          |text      |null: false                   |
+|genre_id          |integer   |null: false                   |
+|user              |references|null: false, foreign_key: true|
 
-* Database initialization
+### Association
+- belongs_to :user
+- has_many :pages
+- has_many :configurations
 
-* How to run the test suite
+## pagesテーブル
+|Column     |Type       |Options                       |
+|-----------|-----------|------------------------------|
+|page_title |string     |null: false                   |
+|novel_page |text       |null: false                   |
+|user       |references |null: false, foreign_key: true|
+|book       |references |null: false, foreign_key: true|
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :user
+- belongs_to :book
 
-* Deployment instructions
+## configurationsテーブル
+|Column              |Type       |Options                       |
+|--------------------|-----------|------------------------------|
+|category_id         |integer    |null: false                   |
+|configuration_novel |string     |null: false                   |
+|user                |references |null: false, foreign_key: true|
+|book                |references |null: false, foreign_key: true|
 
-* ...
+### Association
+- belongs_to :user
+- belongs_to :book
