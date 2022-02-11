@@ -1,5 +1,5 @@
 <% @books.each do |book| %>
-  <%= link_to root_path, method: :get do %>
+  <%= link_to book_path(book.id), method: :get do %>
     <div>
     題名　　：<%= book.novel_title %><br>
     ジャンル：<%= book.genre.name %><br>
