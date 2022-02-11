@@ -18,6 +18,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @pages = @book.pages.includes(:book)
   end
 
   private
