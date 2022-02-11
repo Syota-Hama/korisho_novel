@@ -1,0 +1,7 @@
+<% @pages.each do |page| %>
+  <%= link_to "#", method: :get do %>
+    <div>
+    ・<%= page.page_title %><br>
+    </div>
+  <% end %>
+<% end %>
