@@ -1,0 +1,10 @@
+<div>
+  <% @configurations.each do |configuration| %>
+  <%= link_to "#", method: :get do %>
+    <div>
+    ・<%= configuration.category_id %>
+    /<%= configuration.configuration_novel %><br>
+    </div>
+  <% end %>
+<% end %>
+</div>

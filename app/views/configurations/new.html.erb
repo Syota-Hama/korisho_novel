@@ -1,0 +1,52 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to "Korisho_Novel", root_path %>
+  </header>
+
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">設定の概要を入力してください</h2>
+    <%= form_with(model:[@book, @configuration], method: :post, local: true) do |f| %>
+
+    <%= render 'books/shared/error_messages', model: f.object %>
+
+    <div class="items-detail">
+      <div class="weight-bold-text">小説の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            詳細設定
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :configuration_novel, class:"items-text", id:"synopsis", placeholder:"設定内容（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="sell-btn-contents">
+      <%= f.submit "作成する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+
+  </div>
+  <% end %>
+
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to "Korisho_Novel", root_path %>
+    <p class="inc">
+      ©︎Korisho-Novel,Inc.
+    </p>
+  </footer>
+</div>
