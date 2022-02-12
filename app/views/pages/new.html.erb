@@ -37,6 +37,13 @@
   </div>
   <% end %>
 
+<div class="configuration">
+  <%= @configurations.each do |configuration| %>
+    <%= configuration.configuration_novel %><br>
+    <p>--------------------------------------------</p>
+  <% end %>
+</div>
+
   <footer class="items-sell-footer">
     <ul class="menu">
       <li><a href="#">プライバシーポリシー</a></li>

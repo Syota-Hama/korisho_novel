@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
   def index
     @book = Book.find(params[:book_id])
     @pages = @book.pages.includes(:book)
@@ -8,6 +7,7 @@ class PagesController < ApplicationController
   def new
     @page = Page.new
     @book = Book.find(params[:book_id])
+    @configurations = @book.configurations.includes(:book)
   end
 
   def create
