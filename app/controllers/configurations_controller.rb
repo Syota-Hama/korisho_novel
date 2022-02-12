@@ -18,6 +18,12 @@ class ConfigurationsController < ApplicationController
     end
   end
 
+  def show
+    @book = Book.find(params[:book_id])
+    @configurations = @book.configurations.includes(:book)
+    @configuration = @configurations.find(params[:id])
+  end
+
   private
   def configuration_params
     params.require(:configuration).permit(:category_id, :configuration_novel).merge(book_id: @book.id, user_id: current_user.id)

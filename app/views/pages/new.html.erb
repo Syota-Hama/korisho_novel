@@ -1,8 +1,8 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
-    <%= link_to "Korisho_Novel", root_path %>
+    <h1>Korisho_Novel</h1>
   </header>
-
+  <div class="form-config">
   <div class="items-sell-main">
     <h2 class="items-sell-title">内容を入力してください</h2>
     <%= form_with(model:[@book, @page], local: true) do |f| %>
@@ -17,8 +17,7 @@
       <%= f.text_area :page_title, class:"items-text", id:"novel_title", placeholder:"ページタイトル（必須 40文字まで)", maxlength:"40" %>
     </div>
 
-    <div class="items-detail">
-      <div class="weight-bold-text">ページテキスト</div>
+
       <div class="form">
         <div class="items-explain">
           <div class="weight-bold-text">
@@ -28,21 +27,21 @@
           <%= f.text_area :novel_page, class:"items-text", id:"synopsis", placeholder:"テキスト（必須 10,000文字まで）" ,rows:"7" ,maxlength:"10000" %>
         </div>
       </div>
-    </div>
+
 
     <div class="sell-btn-contents">
       <%= f.submit "投稿する" ,class:"sell-btn" %>
       <%=link_to 'もどる', book_pages_path, class:"back-btn" %>
     </div>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-
-<div class="configuration">
-  <%= @configurations.each do |configuration| %>
-    <%= configuration.configuration_novel %><br>
-    <p>--------------------------------------------</p>
-  <% end %>
-</div>
+  <h2 class="items-sell-title">設定一覧</h2>
+  <div class="configuration">
+    <% @configurations.each do |configuration| %>
+      ・<%= link_to configuration.configuration_novel, book_configuration_path(@book.id, configuration.id) %><br>
+    <% end %>
+  </div>
 
   <footer class="items-sell-footer">
     <ul class="menu">
